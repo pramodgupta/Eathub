@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="order_enter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="res_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="details" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="total" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="order_enterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="order_enterResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="address_insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="today" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="address_insertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="address_insertResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="user_order">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="user_orderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_orderResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="res_order">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="res_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="res_orderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="res_orderResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="order_details">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="order_detailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="order_detailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="table_bokking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="res_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="table_bokkingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="table_bokkingResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chart_res">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="res_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chart_resResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="chart_resResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chart_user">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="res_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chart_userResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="chart_userResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="order_enterSoapIn">
+    <wsdl:part name="parameters" element="tns:order_enter" />
+  </wsdl:message>
+  <wsdl:message name="order_enterSoapOut">
+    <wsdl:part name="parameters" element="tns:order_enterResponse" />
+  </wsdl:message>
+  <wsdl:message name="address_insertSoapIn">
+    <wsdl:part name="parameters" element="tns:address_insert" />
+  </wsdl:message>
+  <wsdl:message name="address_insertSoapOut">
+    <wsdl:part name="parameters" element="tns:address_insertResponse" />
+  </wsdl:message>
+  <wsdl:message name="user_orderSoapIn">
+    <wsdl:part name="parameters" element="tns:user_order" />
+  </wsdl:message>
+  <wsdl:message name="user_orderSoapOut">
+    <wsdl:part name="parameters" element="tns:user_orderResponse" />
+  </wsdl:message>
+  <wsdl:message name="res_orderSoapIn">
+    <wsdl:part name="parameters" element="tns:res_order" />
+  </wsdl:message>
+  <wsdl:message name="res_orderSoapOut">
+    <wsdl:part name="parameters" element="tns:res_orderResponse" />
+  </wsdl:message>
+  <wsdl:message name="order_detailsSoapIn">
+    <wsdl:part name="parameters" element="tns:order_details" />
+  </wsdl:message>
+  <wsdl:message name="order_detailsSoapOut">
+    <wsdl:part name="parameters" element="tns:order_detailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="table_bokkingSoapIn">
+    <wsdl:part name="parameters" element="tns:table_bokking" />
+  </wsdl:message>
+  <wsdl:message name="table_bokkingSoapOut">
+    <wsdl:part name="parameters" element="tns:table_bokkingResponse" />
+  </wsdl:message>
+  <wsdl:message name="chart_resSoapIn">
+    <wsdl:part name="parameters" element="tns:chart_res" />
+  </wsdl:message>
+  <wsdl:message name="chart_resSoapOut">
+    <wsdl:part name="parameters" element="tns:chart_resResponse" />
+  </wsdl:message>
+  <wsdl:message name="chart_userSoapIn">
+    <wsdl:part name="parameters" element="tns:chart_user" />
+  </wsdl:message>
+  <wsdl:message name="chart_userSoapOut">
+    <wsdl:part name="parameters" element="tns:chart_userResponse" />
+  </wsdl:message>
+  <wsdl:portType name="orderSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="order_enter">
+      <wsdl:input message="tns:order_enterSoapIn" />
+      <wsdl:output message="tns:order_enterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="address_insert">
+      <wsdl:input message="tns:address_insertSoapIn" />
+      <wsdl:output message="tns:address_insertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="user_order">
+      <wsdl:input message="tns:user_orderSoapIn" />
+      <wsdl:output message="tns:user_orderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="res_order">
+      <wsdl:input message="tns:res_orderSoapIn" />
+      <wsdl:output message="tns:res_orderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="order_details">
+      <wsdl:input message="tns:order_detailsSoapIn" />
+      <wsdl:output message="tns:order_detailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="table_bokking">
+      <wsdl:input message="tns:table_bokkingSoapIn" />
+      <wsdl:output message="tns:table_bokkingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chart_res">
+      <wsdl:input message="tns:chart_resSoapIn" />
+      <wsdl:output message="tns:chart_resSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chart_user">
+      <wsdl:input message="tns:chart_userSoapIn" />
+      <wsdl:output message="tns:chart_userSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="orderSoap" type="tns:orderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="order_enter">
+      <soap:operation soapAction="http://tempuri.org/order_enter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="address_insert">
+      <soap:operation soapAction="http://tempuri.org/address_insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="user_order">
+      <soap:operation soapAction="http://tempuri.org/user_order" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="res_order">
+      <soap:operation soapAction="http://tempuri.org/res_order" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="order_details">
+      <soap:operation soapAction="http://tempuri.org/order_details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="table_bokking">
+      <soap:operation soapAction="http://tempuri.org/table_bokking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chart_res">
+      <soap:operation soapAction="http://tempuri.org/chart_res" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chart_user">
+      <soap:operation soapAction="http://tempuri.org/chart_user" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="orderSoap12" type="tns:orderSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="order_enter">
+      <soap12:operation soapAction="http://tempuri.org/order_enter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="address_insert">
+      <soap12:operation soapAction="http://tempuri.org/address_insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="user_order">
+      <soap12:operation soapAction="http://tempuri.org/user_order" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="res_order">
+      <soap12:operation soapAction="http://tempuri.org/res_order" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="order_details">
+      <soap12:operation soapAction="http://tempuri.org/order_details" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="table_bokking">
+      <soap12:operation soapAction="http://tempuri.org/table_bokking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chart_res">
+      <soap12:operation soapAction="http://tempuri.org/chart_res" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chart_user">
+      <soap12:operation soapAction="http://tempuri.org/chart_user" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="order">
+    <wsdl:port name="orderSoap" binding="tns:orderSoap">
+      <soap:address location="http://localhost:53236/eathub_webservice/order.asmx" />
+    </wsdl:port>
+    <wsdl:port name="orderSoap12" binding="tns:orderSoap12">
+      <soap12:address location="http://localhost:53236/eathub_webservice/order.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="category_add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cat_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cat_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="img" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="category_addResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="category_addResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="category_retrieve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="category_retrieveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="category_retrieveResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="menu_retrieve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="menu_retrieveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="menu_retrieveResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="menu_retrieve_update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="menu_retrieve_updateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="menu_retrieve_updateResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="menu_update_update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="price" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cattype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="img" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="menu_update_updateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="menu_update_updateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="item_add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="it_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="it_price" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="it_category" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="it_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="img_path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="it_desc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="item_addResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="item_addResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="menu_category_retrieve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="menu_category_retrieveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="menu_category_retrieveResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="res_category">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="res_categoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="res_categoryResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="category_addSoapIn">
+    <wsdl:part name="parameters" element="tns:category_add" />
+  </wsdl:message>
+  <wsdl:message name="category_addSoapOut">
+    <wsdl:part name="parameters" element="tns:category_addResponse" />
+  </wsdl:message>
+  <wsdl:message name="category_retrieveSoapIn">
+    <wsdl:part name="parameters" element="tns:category_retrieve" />
+  </wsdl:message>
+  <wsdl:message name="category_retrieveSoapOut">
+    <wsdl:part name="parameters" element="tns:category_retrieveResponse" />
+  </wsdl:message>
+  <wsdl:message name="menu_retrieveSoapIn">
+    <wsdl:part name="parameters" element="tns:menu_retrieve" />
+  </wsdl:message>
+  <wsdl:message name="menu_retrieveSoapOut">
+    <wsdl:part name="parameters" element="tns:menu_retrieveResponse" />
+  </wsdl:message>
+  <wsdl:message name="menu_retrieve_updateSoapIn">
+    <wsdl:part name="parameters" element="tns:menu_retrieve_update" />
+  </wsdl:message>
+  <wsdl:message name="menu_retrieve_updateSoapOut">
+    <wsdl:part name="parameters" element="tns:menu_retrieve_updateResponse" />
+  </wsdl:message>
+  <wsdl:message name="menu_update_updateSoapIn">
+    <wsdl:part name="parameters" element="tns:menu_update_update" />
+  </wsdl:message>
+  <wsdl:message name="menu_update_updateSoapOut">
+    <wsdl:part name="parameters" element="tns:menu_update_updateResponse" />
+  </wsdl:message>
+  <wsdl:message name="item_addSoapIn">
+    <wsdl:part name="parameters" element="tns:item_add" />
+  </wsdl:message>
+  <wsdl:message name="item_addSoapOut">
+    <wsdl:part name="parameters" element="tns:item_addResponse" />
+  </wsdl:message>
+  <wsdl:message name="menu_category_retrieveSoapIn">
+    <wsdl:part name="parameters" element="tns:menu_category_retrieve" />
+  </wsdl:message>
+  <wsdl:message name="menu_category_retrieveSoapOut">
+    <wsdl:part name="parameters" element="tns:menu_category_retrieveResponse" />
+  </wsdl:message>
+  <wsdl:message name="res_categorySoapIn">
+    <wsdl:part name="parameters" element="tns:res_category" />
+  </wsdl:message>
+  <wsdl:message name="res_categorySoapOut">
+    <wsdl:part name="parameters" element="tns:res_categoryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="restaurant_menusSoap">
+    <wsdl:operation name="category_add">
+      <wsdl:input message="tns:category_addSoapIn" />
+      <wsdl:output message="tns:category_addSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="category_retrieve">
+      <wsdl:input message="tns:category_retrieveSoapIn" />
+      <wsdl:output message="tns:category_retrieveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="menu_retrieve">
+      <wsdl:input message="tns:menu_retrieveSoapIn" />
+      <wsdl:output message="tns:menu_retrieveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="menu_retrieve_update">
+      <wsdl:input message="tns:menu_retrieve_updateSoapIn" />
+      <wsdl:output message="tns:menu_retrieve_updateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="menu_update_update">
+      <wsdl:input message="tns:menu_update_updateSoapIn" />
+      <wsdl:output message="tns:menu_update_updateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="item_add">
+      <wsdl:input message="tns:item_addSoapIn" />
+      <wsdl:output message="tns:item_addSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="menu_category_retrieve">
+      <wsdl:input message="tns:menu_category_retrieveSoapIn" />
+      <wsdl:output message="tns:menu_category_retrieveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="res_category">
+      <wsdl:input message="tns:res_categorySoapIn" />
+      <wsdl:output message="tns:res_categorySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="restaurant_menusSoap" type="tns:restaurant_menusSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="category_add">
+      <soap:operation soapAction="http://tempuri.org/category_add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="category_retrieve">
+      <soap:operation soapAction="http://tempuri.org/category_retrieve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="menu_retrieve">
+      <soap:operation soapAction="http://tempuri.org/menu_retrieve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="menu_retrieve_update">
+      <soap:operation soapAction="http://tempuri.org/menu_retrieve_update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="menu_update_update">
+      <soap:operation soapAction="http://tempuri.org/menu_update_update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="item_add">
+      <soap:operation soapAction="http://tempuri.org/item_add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="menu_category_retrieve">
+      <soap:operation soapAction="http://tempuri.org/menu_category_retrieve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="res_category">
+      <soap:operation soapAction="http://tempuri.org/res_category" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="restaurant_menusSoap12" type="tns:restaurant_menusSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="category_add">
+      <soap12:operation soapAction="http://tempuri.org/category_add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="category_retrieve">
+      <soap12:operation soapAction="http://tempuri.org/category_retrieve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="menu_retrieve">
+      <soap12:operation soapAction="http://tempuri.org/menu_retrieve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="menu_retrieve_update">
+      <soap12:operation soapAction="http://tempuri.org/menu_retrieve_update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="menu_update_update">
+      <soap12:operation soapAction="http://tempuri.org/menu_update_update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="item_add">
+      <soap12:operation soapAction="http://tempuri.org/item_add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="menu_category_retrieve">
+      <soap12:operation soapAction="http://tempuri.org/menu_category_retrieve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="res_category">
+      <soap12:operation soapAction="http://tempuri.org/res_category" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="restaurant_menus">
+    <wsdl:port name="restaurant_menusSoap" binding="tns:restaurant_menusSoap">
+      <soap:address location="http://localhost:53236/eathub_webservice/restaurant_menus.asmx" />
+    </wsdl:port>
+    <wsdl:port name="restaurant_menusSoap12" binding="tns:restaurant_menusSoap12">
+      <soap12:address location="http://localhost:53236/eathub_webservice/restaurant_menus.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
